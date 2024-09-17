@@ -1,5 +1,5 @@
 <?php
-require_once '../models/Cita.php';
+require_once '../modelo/mascota.php';
 
 class MascotaControlador {
     private $mascota;
