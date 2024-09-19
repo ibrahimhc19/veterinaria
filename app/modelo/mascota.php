@@ -19,10 +19,10 @@ class Mascota
     private $conexion;
 
 
-    public function __construct($db)
+    public function __construct()
     {
         //instanciar la clase Conexion en un objeto llamado $conexion
-        $this->conexion = new Conexion($db);
+        $this->conexion = new Conexion();
     }
 
 

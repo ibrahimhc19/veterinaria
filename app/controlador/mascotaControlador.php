@@ -1,15 +1,16 @@
 <?php
-require_once '../modelo/mascota.php';
+include_once ('../modelo/mascota.php');
 
-class MascotaControlador {
+class MascotaC {
     private $mascota;
 
-    public function __construct($db) {
-        $this->mascota = new Mascota($db);
+    public function __construct() {
+        $this->mascota = new Mascota();
     }
 
     public function obtenerRegistros() {
-        echo json_encode($this->mascota->listarMascotas());
+        $tabla = $this->mascota->listarMascotas();
+        return $tabla;
     }
 
     public function agregarRegistro($data) {
@@ -21,10 +22,10 @@ class MascotaControlador {
     }
 
     public function eliminarRegistro($id) {
-        if ($this->mascota->eliminarMascota($id)) {
-            echo json_encode(['status' => 'success']);
-        } else {
-            echo json_encode(['status' => 'error']);
-        }
+
+        $this->mascota->__SET('id', $id);
+        $result = $this->mascota->eliminarMascota();
+        return $result;
+
     }
 }
