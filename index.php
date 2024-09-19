@@ -29,7 +29,7 @@
       <!--Aqui va el código para cargar la vista del formulario solicitado-->
       <?php 
           //Unir el archivo enrutador.php a la vista del index para llamra la clase Enrutador 
-          include_once ('Modulos/enrutador.php');
+          include_once ('./app/controlador/enrutador.php');
           //Crear variable para instanciar la clase Enrutador y asi poder acceder al metodo loadView(cargar vista)
           $enrutador = new Enrutador();
           //Condicion para validar que la variable por GET llamada load si llega vacia darle una ruta osea inicio
