@@ -5,31 +5,6 @@ $mascotas = new MascotaC();
 $tablaEst = $mascotas->obtenerRegistros();
 
 ?>
-<!-- if ($query) {
-
-  $contador = 1;
-
-  while ($row = mysqli_fetch_assoc($query)) {
-    $nombre = $row['nombre'];
-    $apellido = $row['apellido'];
-    $correo = $row['correo'];
-    $telefono = $row['telefono'];
-    $id = $row['id'];
-    echo '<tr>
-              <td scope="row" class="text-center">'.$contador.'</td>
-              <td scope="row">'.$nombre.'</td>
-              <td scope="row">'.$apellido.'</td>
-              <td scope="row">'.$correo.'</td>
-              <td scope="row">'.$telefono.'</td>
-              <td scope="row"><button class="btn btn-info" data-id="'.$id.'" onclick="actualizar()">Editar</button></td>
-              <td scope="row"><button type="button" class="btn btn-info" data-id="'.$id.'" data-bs-toggle="modal" data-bs-target="#modalActualizar" onclick="obtenerDatos()">Actualizar</button></td>
-              <td scope="row"><button class="btn btn-danger" onclick="eliminar('.$id.')">Eliminar</button></td>
-            </tr>';
-    $contador++;
-  }
-}
-?> -->
-
 
 <div class="container style-form">
 
@@ -54,7 +29,6 @@ $tablaEst = $mascotas->obtenerRegistros();
 
 
       <tbody id="cuerpoTabla">
-      <!-- Cuerpo de la tabla (Datos) -->
                   <?php foreach ($tablaEst as $data) :?> 
                     <tr class="text-center">
                         <td><?php echo $data['id'];?></td>
@@ -68,7 +42,6 @@ $tablaEst = $mascotas->obtenerRegistros();
                         <td><?php echo $data['fecha_hora_entrada'];?></td>
                         <td><?php echo $data['fecha_hora_salida'];?></td>
                         <td class="d-flex">
-                        <!--Crear botones para editar eliminar y ver el estudiante-->
                             <a href="?load=verMascota&id=<?php echo $data['id'];?>">
                                 <button type="button" class="btn btn-primary btn-md">Ver</button></a>
 

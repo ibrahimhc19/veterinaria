@@ -1,18 +1,13 @@
 <?php
 include_once('./app/controlador/mascotaControlador.php');
 $mascota = new MascotaC();
-//GET viajan las vaiables por la URL
-//POST viajan  variables ocultas.
+
 if (isset($_GET['id']) && $_GET['id'] != null) {
-  //llamar el metodo buscarEstudianteId;
   $row = $mascota->buscarMascotaId($_GET['id']);
 } else {
-  //si no lo devuleva al index(Inicio)
   header('Location: index.php');
 }
-//dar clic al boton editar entra a la condicion y realiza la actualizacion
 if (isset($_POST['btnEditar'])) {
-  //llamar el metodo editarEstudiante y recibir los parametros del formulario
   $update = $mascota->editarMascota(
     $_POST['txtNombre'],
     $_POST['txtApellido'],
