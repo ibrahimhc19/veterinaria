@@ -50,7 +50,7 @@ if ($result == true) {
 <?php if (isset($del)): ?>
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-        var title, text, icon;
+        let title, text, icon;
 
         if (<?= json_encode($del) ?>) {
             title = "El registro de la mascota fue eliminado correctamente";
@@ -72,7 +72,7 @@ if ($result == true) {
             }
         }).then((result) => {
             if (result.isConfirmed && <?= json_encode($del) ?>) {
-                window.location = "/index.php?load=inicio";
+                window.location = "index.php?load=inicio";
             }
         });
     });
