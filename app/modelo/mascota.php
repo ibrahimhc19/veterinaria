@@ -91,6 +91,12 @@ class Mascota
         return  $this->$atributo;
     }
 
-
+    public function buscarMascotaId(){
+        $sql = "SELECT * FROM mascotas WHERE id = '{$this->id}' LIMIT 1";
+        //llamar el metodo para retornar los datos (consultaRetorno)
+        $tabla = $this->conexion->consultaRetorno($sql);
+        $row = mysqli_fetch_assoc($tabla);
+        return $row;
+    }
 
 }

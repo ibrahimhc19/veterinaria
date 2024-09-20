@@ -19,7 +19,7 @@
   <ul>
   <!-- En la etiqueta <a> se va a mandar la variable load con la vista solicitada por el usuario-->
   <li><a href="?load=inicio">Inicio</a></li>
-  <li><a href="?load=crearMascota">Registrar Mascota</a></li>
+  <li><a href="?load=registrar">Registrar Mascota</a></li>
   <li><a href="https://google.com">Salir</a></li>
   </ul>
 </nav>

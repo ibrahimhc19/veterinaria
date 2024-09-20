@@ -1,13 +1,8 @@
-<!-- Llamar controlador mascota-->
-<!-- instanciar clase controlador -->
-<!-- LLamar metodo leer del controlador -->
-
 <?php
 
-// include_once("./config/conexion.php");
 include_once('./app/controlador/mascotaControlador.php');
-$mascota = new MascotaC();
-$tableEst = $mascota->obtenerRegistros();
+$mascotas = new MascotaC();
+$tablaEst = $mascotas->obtenerRegistros();
 
 ?>
 <!-- if ($query) {
@@ -38,12 +33,11 @@ $tableEst = $mascota->obtenerRegistros();
 
 <div class="container style-form">
 
-
   <div class="table-responsive">
 
-    <table class="table table-striped-columns style-form table-bordered nowrap">
+    <table class="table table-striped-columns table-bordered nowrap">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th scope="col">#</th>
           <th scope="col">Documento del dueño</th>
           <th scope="col">Nombre completo del dueño</th>
@@ -54,6 +48,7 @@ $tableEst = $mascota->obtenerRegistros();
           <th scope="col">Género de la mascota</th>
           <th scope="col">Fecha de entrada</th>
           <th scope="col">Fecha de salida</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
 
@@ -61,18 +56,18 @@ $tableEst = $mascota->obtenerRegistros();
       <tbody id="cuerpoTabla">
       <!-- Cuerpo de la tabla (Datos) -->
                   <?php foreach ($tablaEst as $data) :?> 
-                    <tr>
+                    <tr class="text-center">
                         <td><?php echo $data['id'];?></td>
-                        <td><?php echo $data['documento'];?></td>
+                        <td><?php echo $data['documento_dueño'];?></td>
                         <td><?php echo $data['NombreCompleto'];?></td>
-                        <td><?php echo $data['telefono'];?></td>
+                        <td><?php echo $data['telefono_dueño'];?></td>
                         <td><?php echo $data['edad_mascota'];?></td>
                         <td><?php echo $data['nombre_mascota'];?></td>
                         <td><?php echo $data['raza_mascota'];?></td>
                         <td><?php echo $data['genero_mascota'];?></td>
                         <td><?php echo $data['fecha_hora_entrada'];?></td>
                         <td><?php echo $data['fecha_hora_salida'];?></td>
-                        <td>
+                        <td class="d-flex">
                         <!--Crear botones para editar eliminar y ver el estudiante-->
                             <a href="?load=verMascota&id=<?php echo $data['id'];?>">
                                 <button type="button" class="btn btn-primary btn-md">Ver</button></a>

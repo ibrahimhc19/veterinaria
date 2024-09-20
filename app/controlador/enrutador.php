@@ -9,26 +9,26 @@ class Enrutador
         //Segun casos
         switch ($view) {
             case 'inicio':
-              include_once ('../vistas/');
-                include_once ('../vistas/'. $view . '.php');
+            //   include_once ('./app/vistas');
+                include_once ('./app/vistas/'. $view . '.php');
                 break;
-            case 'crearMascota':
-                include_once ('../vistas/'. $view . '.php');
+            case 'registrar':
+                include_once ('./app/vistas/'. $view . '.php');
                 break;
-            case 'editarMascota':
-                include_once ('../vistas/'. $view . '.php');
+            case 'editar':
+                include_once ('./app/vistas/'. $view . '.php');
                 break;
-            case 'eliminarMascota':
-                include_once ('../vistas/'. $view . '.php');
+            case 'eliminar':
+                include_once ('./app/vistas/'. $view . '.php');
                 break;
             case 'verMascota':
-                include_once ('../vistas/'. $view . '.php');
+                include_once ('./app/vistas/'. $view . '.php');
                 break;
             case 'index':
                 include_once ($view.'.php');
                 break;
             default:
-                include_once ('../vistas//error.php');
+                include_once ('./app/vistas/error.php');
                 break;
         }
 
