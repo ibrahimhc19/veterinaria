@@ -1,15 +1,18 @@
 <?php
-include_once ("Modulos/controladorEstudiante.php");
-$estudianteC = new EstudianteControlador();
+
+include_once('./app/controlador/mascotaControlador.php');
+$mascotaC = new MascotaC();
+
 date_default_timezone_set("America/Bogota");
+
 if (isset($_POST['btnRegistrar'])) {
    //Recibir los datos del formulario registro de estudiante
    $fecha = date('Y-m-d H:i:s');
    //var_dump($_POST['txtNota1'], $_POST['txtNota2'], $_POST['txtNota3'], $fecha); exit();
-   $datosEstudiantes = $estudianteC->insertarEstudiante($_POST['txtDocumento'], $_POST['txtNombre'], 
+   $datosMascota = $mascotaC->agregarRegistro($_POST['txtDocumento'], $_POST['txtNombre'], 
                                                         $_POST['txtApellido'], $_POST['txtTelefono'], $_POST['txtEdad'],
-                                                        $_POST['txtNota1'], $_POST['txtNota2'], $_POST['txtNota3'], $fecha);
-    if ($datosEstudiantes == true) {
+                                                        $_POST['txtNota1'], $_POST['txtNota2'], $_POST['txtNota3'], $_POST['txtNota3'], $_POST['txtNota3']);
+    if ($datosMascota == true) {
         //echo "Registro exitoso";
         $val = "1";
     } else {

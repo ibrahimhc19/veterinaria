@@ -50,22 +50,22 @@ if ($result == true) {
 <?php if (isset($del)): ?>
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-        let title, text, icon;
+        let titulo, texto, icono;
 
         if (<?= json_encode($del) ?>) {
-            title = "El registro de la mascota fue eliminado correctamente";
-            text = "Puedes verificar los cambios en el sistema.";
-            icon = "success";
+            titulo = "El registro de la mascota fue eliminado correctamente";
+            texto = "Puedes verificar los cambios en el sistema.";
+            icono = "success";
         } else {
-            title = "Error al eliminar el registro";
-            text = "Por favor, intenta nuevamente.";
-            icon = "error";
+            titulo = "Error al eliminar el registro";
+            texto = "Por favor, intenta nuevamente.";
+            icono = "error";
         }
 
         Swal.fire({
-            title: title,
-            text: text,
-            icon: icon,
+            title: titulo,
+            text: texto,
+            icon: icono,
             confirmButtonText: "Aceptar",
             customClass: {
                 confirmButton: 'btn btn-success'
