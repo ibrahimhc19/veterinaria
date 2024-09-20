@@ -52,7 +52,7 @@ if ($result == true) {
             $(document).ready(function(){
                 //alerta si fue eliminado correctamente
                 swal({
-                    title: "El estudiante fue eliminado correctamente",
+                    title: "El registro de la mascota fue eliminado correctamente",
                     type: "success",
                     confirmButton: "#3CB371",
                     confirmButtonText: "Aceptar",
@@ -61,7 +61,7 @@ if ($result == true) {
                 },
                 function(isConfirm){
                     if(isConfirm){
-                        window.location="index.php?load=inicio";
+                        window.location="/index.php?load=inicio";
                     }
                 });
             });
@@ -73,7 +73,7 @@ if ($result == true) {
              $(document).ready(function(){
                  //alerta si no fue eliminado
                  swal({
-                    title: "Error al eliminar el estudiante",
+                    title: "Error al eliminar el registro",
                     type: "error",
                     confirmButton: "#3CB371",
                     confirmButtonText: "Aceptar",
