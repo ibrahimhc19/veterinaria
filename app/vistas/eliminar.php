@@ -47,39 +47,34 @@ if ($result == true) {
         </form>
 </div>
 
-<?php if(isset($del) && $del == true):?>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                //alerta si fue eliminado correctamente
-                swal({
-                    title: "El registro de la mascota fue eliminado correctamente",
-                    type: "success",
-                    confirmButton: "#3CB371",
-                    confirmButtonText: "Aceptar",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                function(isConfirm){
-                    if(isConfirm){
-                        window.location="/index.php?load=inicio";
-                    }
-                });
-            });
-        </script>
-<?php endif;?>
+<?php if (isset($del)): ?>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var title, text, icon;
 
-<?php if(isset($del) && $del == false):?>
-        <script type="text/javascript">
-             $(document).ready(function(){
-                 //alerta si no fue eliminado
-                 swal({
-                    title: "Error al eliminar el registro",
-                    type: "error",
-                    confirmButton: "#3CB371",
-                    confirmButtonText: "Aceptar",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                });
-             });
-        </script>
-<?php endif;?>
+        if (<?= json_encode($del) ?>) {
+            title = "El registro de la mascota fue eliminado correctamente";
+            text = "Puedes verificar los cambios en el sistema.";
+            icon = "success";
+        } else {
+            title = "Error al eliminar el registro";
+            text = "Por favor, intenta nuevamente.";
+            icon = "error";
+        }
+
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: icon,
+            confirmButtonText: "Aceptar",
+            customClass: {
+                confirmButton: 'btn btn-success'
+            }
+        }).then((result) => {
+            if (result.isConfirmed && <?= json_encode($del) ?>) {
+                window.location = "/index.php?load=inicio";
+            }
+        });
+    });
+</script>
+<?php endif; ?>
