@@ -32,7 +32,7 @@ if ($result == true) {
                 <div class="form-group">
                     <p style="color: red; text-align: center;"><b>
                     ¿Estas seguro de eliminar la mascota 
-                    <?php echo $row['Nombre']." ".$row['Apellido']. " de número de documento ".$row['Documento'];?>?</b></p>
+                    <?php echo $row['nombre_dueño']." ".$row['apellido_dueño']. " de número de documento ".$row['documento_dueño'];?>?</b></p>
                 </div>
                 <div class="form-group" align="center">
                     <input type="submit" class="btn btn-success" name="btnEliminar" value="Si">
