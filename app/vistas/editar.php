@@ -12,7 +12,7 @@ if (isset($_GET['id']) && $_GET['id'] != null) {
 if (isset($_POST['btnEditar'])){
   
   var_dump($_POST['txtNombre'], $_POST['txtApellido'], $_POST['txtTelefono'], $_POST['txtEdadMascota'],$_POST['txtNombreMascota'], $_POST['txtRaza'], $_POST['txtGenero'], $_POST['txtFechaSalida']); // Esto te ayudará a ver qué datos se están enviando.
- $actualizar = $mascota->editarMascota($_POST['txtNombre'], $_POST['txtApellido'], $_POST['txtTelefono'], $_POST['txtEdadMascota'],$_POST['txtNombreMascota'], $_POST['txtRaza'], $_POST['txtGenero'], $_POST['txtFechaSalida']) ;
+ $actualizar = $mascota->editarMascota($_POST['txtNombre'], $_POST['txtApellido'], $_POST['txtTelefono'], $_POST['txtEdadMascota'],$_POST['txtNombreMascota'], $_POST['txtRaza'], $_POST['txtGenero'], $_POST['txtFechaSalida'], $_GET['id']);
 
   //si actualizo correctamente devuelve un verdadero(true);
   if ($actualizar == true) {
