@@ -39,7 +39,6 @@ class Mascota
     {
 
 
-            //consulta para registrar el estudiante
             $sql = "INSERT INTO mascotas (documento_dueño, nombre_dueño, apellido_dueño, telefono_dueño, edad_mascota, nombre_mascota, raza_mascota, genero_mascota, fecha_hora_entrada, fecha_hora_salida)
             VALUES ('{$this->documento}','{$this->nombre}','{$this->apellido}','{$this->telefono}', '{$this->edadMascota}', '{$this->nombreMascota}', '{$this->razaMascota}', '{$this->generoMascota}'
             , '{$this->entrada}', '{$this->salida}')";
@@ -52,7 +51,6 @@ class Mascota
 
     public function listarMascotas()
     {
-        //crear la consulta en la base de datos que necesito para llenar la tabla estudiantes en mi formulario
         $sql = "SELECT id, documento_dueño, CONCAT(nombre_dueño,' ', apellido_dueño) AS NombreCompleto, telefono_dueño , edad_mascota, nombre_mascota, raza_mascota, genero_mascota, fecha_hora_entrada, fecha_hora_salida
         FROM mascotas";
         //llamar el metodo para retornar la tabla (consultaRetorno)
@@ -64,9 +62,8 @@ class Mascota
 
     public function editarMascota()
     {
-        //consulta db para actualizar datos del estudiante
         $sql = "UPDATE mascotas SET nombre_dueño = '{$this->nombre}', apellido_dueño = '{$this->apellido}'
-            , telefono_dueño = '{$this->telefono}',  edad_mascota = '{$this->edadMascota}', nombre_mascota = '{$this->nombreMascota}', raza_mascota = '{$this->razaMascota}', genero_mascota = '{$this->generoMascota}', fecha_hora_entrada = '{$this->entrada}', fecha_hora_salida = '{$this->salida}' WHERE id = '{$this->id}'";
+            , telefono_dueño = '{$this->telefono}',  edad_mascota = '{$this->edadMascota}', nombre_mascota = '{$this->nombreMascota}', raza_mascota = '{$this->razaMascota}', genero_mascota = '{$this->generoMascota}', fecha_hora_salida = '{$this->salida}' WHERE id = '{$this->id}'";
         //Ejecutar la consulta de actualizar
         $this->conexion->consultaSimple($sql);
         return true;

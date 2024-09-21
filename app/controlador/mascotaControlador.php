@@ -48,7 +48,7 @@ class MascotaC {
         return $data;
     }
 
-    public function editarMascota($nombre, $apellido, $telefono, $edad, $nombreMascota, $razaMascota, $generoMascota, $fechaEntrada, $fechaSalida)
+    public function editarMascota($nombre, $apellido, $telefono, $edad, $nombreMascota, $razaMascota, $generoMascota, $fechaSalida)
     {
         $this->mascota->__SET('nombre_dueño', $nombre);
         $this->mascota->__SET('apellido_dueño', $apellido);
@@ -57,9 +57,7 @@ class MascotaC {
         $this->mascota->__SET('nombre_mascota', $nombreMascota );
         $this->mascota->__SET('raza_mascota', $razaMascota);
         $this->mascota->__SET('genero_mascota', $generoMascota);
-        $this->mascota->__SET('fecha_hora_entrada', $fechaEntrada);
         $this->mascota->__SET('fecha_hora_salida', $fechaSalida);
-        //Llamar la funcion editarEstudiante() en la clase Estudiante.
         $result = $this->mascota->editarMascota();
         //Retornar respuesta de la actualización del registro.
         return $result;

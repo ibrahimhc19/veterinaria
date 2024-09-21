@@ -9,7 +9,7 @@ if (isset($_POST['btnRegistrar'])) {
     var_dump($_POST); // Esto te ayudará a ver qué datos se están enviando.
 
     $fechaRegistro = date('Y-m-d H:i:s');
-    $fechaSalida = date('Y-m-d H:i:s');
+    $fechaSalida = "Ingresado";
     
     // $fechaRegistro = isset($_POST['txtFecha']) ? $_POST['txtFecha'] : '';
     // $fechaSalida = isset($_POST['txtFechaSalida']) ? $_POST['txtFechaSalida'] : '';
@@ -120,10 +120,11 @@ if (isset($_POST['btnRegistrar'])) {
                     </div>
                 </div>
                 <div class="form-group" hidden>
+                <?php $fechaSalida = "Ingresado"; ?>
 
                     <label for="txtFechaSalida" class="control-label col-md-3">Fecha de salida:</label>
                     <div class="col-md-9">
-                        <input type="text" name="txtFechaSalida" id="" class="form-control" required value="<?php echo $date; ?>" readonly>
+                        <input type="text" name="txtFechaSalida" id="" class="form-control" required value="<?php echo $fechaSalida; ?>" readonly>
                     </div>
                 </div>
 
