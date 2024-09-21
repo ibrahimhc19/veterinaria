@@ -34,7 +34,7 @@ if ($result == true) {
                     ¿Estas seguro de eliminar la mascota 
                     <?php echo $row['nombre_dueño']." ".$row['apellido_dueño']. " de número de documento ".$row['documento_dueño'];?>?</b></p>
                 </div>
-                <div class="form-group" align="center">
+                <div class="form-group mb-5" align="center">
                     <input type="submit" class="btn btn-success" name="btnEliminar" value="Si">
                     <a href="?load=inicio">
                     <button class="btn btn-danger" type="button" >No</button>

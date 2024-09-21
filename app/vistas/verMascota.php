@@ -52,7 +52,7 @@ if (isset($_GET['id']) && $_GET['id'] != null) {
           <label for=""><span><b>Fecha de salida: </b><?php echo $row['fecha_hora_salida']; ?></span></label><br>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-5">
         <a href="?load=inicio">
           <button type="button" class="btn btn-success btn-md">Atras</button></a><br>
       </div>

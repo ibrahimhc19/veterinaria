@@ -76,23 +76,23 @@ header {
 
 }
 
-.style-form:hover {
+/* .style-form:hover {
   box-shadow: rgba(187, 187, 187, 1) 0 0px 15px;
-}
+} */
 
 .style-form h3{
 
   font: 24px, Arial, Helvetica, sans-serif;
   padding: 20px 0px 20px 40px;
-  background: rgba(90, 149, 149, 0.7);
+  /* background: rgba(90, 149, 149, 0.7); */
   display: block;
   margin: -30px -15px 10px -15px;
   border-radius: 5px 5px 0px 0px;
   border-bottom: 1px solid #F5F5F5;
-  color: #fff;
+  color: black;
   text-align: center;
 }
 
-.style-form:hover h3{
+/* .style-form:hover h3{
   background: rgba(90, 149, 149, 1); 
-}
+} */

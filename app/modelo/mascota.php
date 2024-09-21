@@ -24,28 +24,29 @@ class Mascota
         //instanciar la clase Conexion en un objeto llamado $conexion
         $this->conexion = new Conexion();
     }
-
+    public function __SET($atributo, $valor)
+    {
+        //asigna un valor al atributo
+        $this->$atributo = $valor;
+    }
+    public function __GET($atributo)
+    {
+        //retorna el valor del atributo
+        return  $this->$atributo;
+    }
 
     public function registrarMascota()
     {
 
-        $validarDato = "SELECT * FROM mascotas WHERE id = '{$this->id}'";
-        //realizar la consulta y devolver un resultado
-        $resultado = $this->conexion->consultaRetorno($validarDato);
-        //capturar cantidad de registros si devuleve datos.
-        $canFilas = mysqli_num_rows($resultado);
-        //Colocar una condicion de si llegan registros no debe dejar insertar el mismo dato.
-        if ($canFilas > 0) {
-            return false;
-        } else {
+
             //consulta para registrar el estudiante
-            $sql = "INSERT INTO mascotas(documento_dueño, nombre_dueño, apellido_dueño, telefono_dueño, edad_mascota, nombre_mascota, raza_mascota, genero_mascota, fecha_hora_entrada, fecha_hora_salida)
+            $sql = "INSERT INTO mascotas (documento_dueño, nombre_dueño, apellido_dueño, telefono_dueño, edad_mascota, nombre_mascota, raza_mascota, genero_mascota, fecha_hora_entrada, fecha_hora_salida)
             VALUES ('{$this->documento}','{$this->nombre}','{$this->apellido}','{$this->telefono}', '{$this->edadMascota}', '{$this->nombreMascota}', '{$this->razaMascota}', '{$this->generoMascota}'
             , '{$this->entrada}', '{$this->salida}')";
             //llamar la conexion y ejecutar la consulta con la variable $sql.
             $this->conexion->consultaSimple($sql);
             return true;
-        }
+        
     }
 
 
@@ -80,16 +81,7 @@ class Mascota
     }
 
 
-    public function __SET($atributo, $valor)
-    {
-        //asigna un valor al atributo
-        $this->$atributo = $valor;
-    }
-    public function __GET($atributo)
-    {
-        //retorna el valor del atributo
-        return  $this->$atributo;
-    }
+
 
     public function buscarMascotaId(){
         $sql = "SELECT * FROM mascotas WHERE id = '{$this->id}' LIMIT 1";

@@ -11,6 +11,8 @@ class Conexion
     {
         // Crear la conexión
         $this->conexion = new mysqli($this->host, $this->usuario, $this->password, $this->base_datos);
+        $this->conexion->set_charset("utf8");//Recibir caracteres especiales del español.
+
 
         // Comprobar si la conexión fue exitosa
         if ($this->conexion->connect_error) {

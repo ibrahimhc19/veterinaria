@@ -7,27 +7,26 @@ if (isset($_GET['id']) && $_GET['id'] != null) {
 } else {
   header('Location: index.php');
 }
-if (isset($_POST['btnEditar'])) {
-  $update = $mascota->editarMascota(
-    $_POST['txtNombre'],
-    $_POST['txtApellido'],
-    $_POST['txtTelefono'],
-    $_POST['txtEdad'],
-    $_GET['id']
-  );
+// if (isset($_POST['btnEditar'])) {
+//   $update = $mascota->editarMascota(
+//     $_POST['txtNombre'],
+//     $_POST['txtApellido'],
+//     $_POST['txtTelefono'],
+//     $_POST['txtEdad'],
+//     $_GET['id']
+//   );
 
-  //si actualizo correctamente devuelve un verdadero(true);
-  if ($update == true) {
-    $up = true;
-  } else {
-    $up = false;
-  }
-}
+//   if ($update == true) {
+//     $up = true;
+//   } else {
+//     $up = false;
+//   }
+// }
 
 ?>
 
 <div class="container style-form">
-  <h3><b>Editar estudiante<b></h3>
+  <h3><b>Editar registro de mascota<b></h3>
   <br>
   <form action="" method="post" class="form-horizontal">
     <div class="row">
@@ -92,7 +91,7 @@ if (isset($_POST['btnEditar'])) {
           </div>
         </div>
 
-        <div class="form-group" align="right" style="margin-right: 1%;">
+        <div class="form-group mb-5" align="right" style="margin-right: 1%;">
           <input type="submit" value="Actualizar" class="btn btn-success btn-md" name="btnEditar">
         </div>
 
@@ -107,24 +106,18 @@ if (isset($_POST['btnEditar'])) {
 </div>
 
 <?php if (isset($up) && $up == true) : ?>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      swal({
-          title: "Actualización exitosa",
-          type: "success",
-          confirmButton: "#3CB371",
-          confirmButtonText: "Aceptar",
-          closeOnConfirm: false,
-          closeOnCancel: false
-        },
-        function(isConfirm) {
-          if (isConfirm) {
-            window.location = "index.php?load=inicio";
-          }
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            title: 'Actualización exitosa',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#3CB371',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = 'index.php?load=inicio';
+            }
         });
-
     });
-  </script>
+</script>
 <?php endif; ?>

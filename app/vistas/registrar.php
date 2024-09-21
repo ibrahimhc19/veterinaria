@@ -6,136 +6,166 @@ $mascotaC = new MascotaC();
 date_default_timezone_set("America/Bogota");
 
 if (isset($_POST['btnRegistrar'])) {
-   //Recibir los datos del formulario registro de estudiante
-   $fecha = date('Y-m-d H:i:s');
-   //var_dump($_POST['txtNota1'], $_POST['txtNota2'], $_POST['txtNota3'], $fecha); exit();
-   $datosMascota = $mascotaC->agregarRegistro($_POST['txtDocumento'], $_POST['txtNombre'], 
-                                                        $_POST['txtApellido'], $_POST['txtTelefono'], $_POST['txtEdad'],
-                                                        $_POST['txtNota1'], $_POST['txtNota2'], $_POST['txtNota3'], $_POST['txtNota3'], $_POST['txtNota3']);
+    var_dump($_POST); // Esto te ayudará a ver qué datos se están enviando.
+
+    $fechaRegistro = date('Y-m-d H:i:s');
+    $fechaSalida = date('Y-m-d H:i:s');
+    
+    // $fechaRegistro = isset($_POST['txtFecha']) ? $_POST['txtFecha'] : '';
+    // $fechaSalida = isset($_POST['txtFechaSalida']) ? $_POST['txtFechaSalida'] : '';
+
+    $datosMascota = $mascotaC->agregarRegistro(
+        $_POST['txtDocumento'],
+        $_POST['txtNombre'],
+        $_POST['txtApellido'],
+        $_POST['txtTelefono'],
+        $_POST['txtEdad'],
+        $_POST['txtNombreMascota'],
+        $_POST['txtRaza'],
+        $_POST['txtGenero'],
+        $fechaRegistro,
+        $fechaSalida
+    );
+
     if ($datosMascota == true) {
-        //echo "Registro exitoso";
         $val = "1";
     } else {
-        //echo "El documento ya se encuentra registrado";
         $val = "2";
-    } 
+    }
 }
+
 
 ?>
 
-<div class="container style-form">
-    <h3><b>Registrar estudiante<b></h3>
+<div class="container style-form mt-4">
+    <h3><b>Registrar mascota<b></h3>
     <br>
-    <form action="" method="post" class="form-horizontal">
+    <form action="" method="post" class="form-horizontal ">
         <div class="row">
 
             <div class="col-md-6">
+                <h4>Datos dueño:</h4>
 
                 <div class="form-group">
-                <label for="txtDocumento" class="control-label col-md-3">Documento:</label>
+                    <label for="txtDocumento" class="control-label col-md-3">Documento:</label>
                     <div class="col-md-9">
                         <input type="text" name="txtDocumento" id="" class="form-control" required>
                     </div>
-                
+
                 </div>
-             
+
                 <div class="form-group">
-                <label for="txtNombre" class="control-label col-md-3">Nombre:</label>
+                    <label for="txtNombre" class="control-label col-md-3">Nombre:</label>
                     <div class="col-md-9">
                         <input type="text" name="txtNombre" id="" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                <label for="txtApellido" class="control-label col-md-3">Apellido:</label>
+                    <label for="txtApellido" class="control-label col-md-3">Apellido:</label>
                     <div class="col-md-9">
                         <input type="text" name="txtApellido" id="" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                <label for="txtTelefono" class="control-label col-md-3">Telefono:</label>
+                    <label for="txtTelefono" class="control-label col-md-3">Telefono:</label>
                     <div class="col-md-9">
                         <input type="text" name="txtTelefono" id="" class="form-control" required>
-                    </div>
-                </div>
-
-                  <div class="form-group">
-                <label for="txtEdad" class="control-label col-md-3">Edad:</label>
-                    <div class="col-md-9">
-                        <input type="text" name="txtEdad" id="" class="form-control" required>
                     </div>
                 </div>
 
             </div>
 
             <div class="col-md-6">
-                 
-                
-                 <div class="form-group">
-                <label for="txtNota1" class="control-label col-md-3">Nota 1:</label>
+                <h4>Datos mascota:</h4>
+
+                <div class="form-group">
+                    <label for="txtNombreMascota" class="control-label col-md-3">Nombre:</label>
                     <div class="col-md-9">
-                        <input type="number" step="0.1" name="txtNota1" id="" class="form-control" required>
+                        <input type="text" name="txtNombreMascota" id="" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                <label for="txtNota2" class="control-label col-md-3">Nota 2:</label>
+                    <label for="txtEdad" class="control-label col-md-3">Edad:</label>
                     <div class="col-md-9">
-                        <input type="number" step="0.1" name="txtNota2" id="" class="form-control" required>
+                        <input type="text" name="txtEdad" id="" class="form-control" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="txtRaza" class="control-label col-md-3">Raza:</label>
+                    <div class="col-md-9">
+                        <input type="text" name="txtRaza" id="" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                <label for="txtNota3" class="control-label col-md-3">Nota 3:</label>
+                    <label for="txtGenero" class="control-label col-md-3">Género:</label>
                     <div class="col-md-9">
-                        <input type="number" step="0.1" name="txtNota3" id="" class="form-control" required>
+                        <input type="text" name="txtGenero" id="" class="form-control" required>
                     </div>
                 </div>
 
-                  <div class="form-group">
 
-                  <?php  $date = date('Y-m-d H:i:s');?>
-                     <label for="txtFecha" class="control-label col-md-3">Fecha-registro:</label>
+                <div class="form-group">
+
+                    <?php $date = date('Y-m-d H:i:s'); ?>
+
+                    <label for="txtFecha" class="control-label col-md-3">Fecha de registro:</label>
                     <div class="col-md-9">
-                        <input type="text" name="txtFecha" id="" class="form-control" required value="<?php echo $date;?>" disabled>
+                        <input type="text" name="txtFecha" id="" class="form-control" required value="<?php echo $date; ?>" readonly>
+                    </div>
+                </div>
+                <div class="form-group" hidden>
+
+                    <label for="txtFechaSalida" class="control-label col-md-3">Fecha de salida:</label>
+                    <div class="col-md-9">
+                        <input type="text" name="txtFechaSalida" id="" class="form-control" required value="<?php echo $date; ?>" readonly>
                     </div>
                 </div>
 
-                <div class="form-group" align="right" style="margin-right: 1%;">
+                <div class="form-group my-5">
                     <input type="submit" value="Guardar" class="btn btn-primary btn-md" name="btnRegistrar">
                 </div>
 
 
             </div>
-            
-                
+
+
         </div>
-  
+
     </form>
 
 </div>
 <br><br>
- 
- <!--Si se registro exitosamente devuelve un 1-->
-<?php if(isset($val) && $val == "1"):?>
+
+<!-- Si se registró exitosamente devuelve un 1 -->
+<?php if (isset($val) && $val == "1"): ?>
 <script type="text/javascript">
-//Cuando el documento sea leido se ejecute
-$(document).ready(function(){
-    //Mostrar caja de alerta de la libreria de sweetalert
-    sweetAlert("Registro Exitoso");
-
-});
-</script>
-<?php endif; ?>
- <!--Si no se registro devuelve un 2-->
-<?php if(isset($val) && $val == "2"):?>
-<script type="text/javascript">
-$(document).ready(function(){
-
-    sweetAlert("Documento ya esta registrado!!!");
-
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            title: 'Registro Exitoso',
+            text: 'Los datos han sido guardados correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
+    });
 </script>
 <?php endif; ?>
 
+<!-- Si no se registró devuelve un 2 -->
+<?php if (isset($val) && $val == "2"): ?>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            title: 'Error en el Registro',
+            text: 'El documento ya está registrado!!!',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    });
+</script>
+<?php endif; ?>
