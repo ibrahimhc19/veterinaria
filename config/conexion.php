@@ -22,16 +22,15 @@ class Conexion
 
     public function consultaSimple($query)
     {
-
         try {
-            $consulta = $this->conexion->query($query) || die("Ha ocurrido un error al realizar la consulta");
+            $consulta = $this->conexion->query($query);
+            return $consulta ? true : false; // Devuelve true si fue exitoso
         } catch (Exception $e) {
-            $this->conexion->rollback(); //devuelve la consulta y no se ejecuta
-            mysqli_free_result($consulta); //Liberar consulta
-            mysqli_close($this->conexion); //cerrar conexion
-
+            $this->conexion->rollback(); // Devuelve la consulta
+            return false; // Indica que ocurrió un error
         }
     }
+    
 
 
     public function consultaRetorno($query)

@@ -37,16 +37,16 @@ class Mascota
 
     public function registrarMascota()
     {
-
-
-            $sql = "INSERT INTO mascotas (documento_dueño, nombre_dueño, apellido_dueño, telefono_dueño, edad_mascota, nombre_mascota, raza_mascota, genero_mascota, fecha_hora_entrada, fecha_hora_salida)
-            VALUES ('{$this->documento}','{$this->nombre}','{$this->apellido}','{$this->telefono}', '{$this->edadMascota}', '{$this->nombreMascota}', '{$this->razaMascota}', '{$this->generoMascota}'
-            , '{$this->entrada}', '{$this->salida}')";
-            //llamar la conexion y ejecutar la consulta con la variable $sql.
-            $this->conexion->consultaSimple($sql);
+        $sql = "INSERT INTO mascotas (documento_dueño, nombre_dueño, apellido_dueño, telefono_dueño, edad_mascota, nombre_mascota, raza_mascota, genero_mascota, fecha_hora_entrada, fecha_hora_salida)
+                VALUES ('{$this->documento}','{$this->nombre}','{$this->apellido}','{$this->telefono}', '{$this->edadMascota}', '{$this->nombreMascota}', '{$this->razaMascota}', '{$this->generoMascota}', '{$this->entrada}', '{$this->salida}')";
+    
+        if ($this->conexion->consultaSimple($sql)) {
             return true;
-        
+        } else {
+            return false;
+        }
     }
+    
 
 
     public function listarMascotas()

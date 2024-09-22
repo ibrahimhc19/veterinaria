@@ -27,7 +27,6 @@ class MascotaC {
         $this->mascota->__SET('genero_mascota', $generoMascota);
         $this->mascota->__SET('fecha_hora_entrada', $fechaEntrada);
         $this->mascota->__SET('fecha_hora_salida', $fechaSalida);
-        //Llamar la funcion registrarEstudiante() en la clase Estudiante
         $result = $this->mascota->registrarMascota();
         //Retornar respuesta de la insercion del registro
         return $result;

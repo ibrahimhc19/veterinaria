@@ -8,11 +8,8 @@ date_default_timezone_set("America/Bogota");
 if (isset($_POST['btnRegistrar'])) {
     var_dump($_POST); // Esto te ayudará a ver qué datos se están enviando.
 
-    $fechaRegistro = date('Y-m-d H:i:s');
-    $fechaSalida = "Ingresado";
-    
-    // $fechaRegistro = isset($_POST['txtFecha']) ? $_POST['txtFecha'] : '';
-    // $fechaSalida = isset($_POST['txtFechaSalida']) ? $_POST['txtFechaSalida'] : '';
+    // $fechaRegistro = date('Y-m-d H:i:s');
+    $fechaSalida = NULL;
 
     $datosMascota = $mascotaC->agregarRegistro(
         $_POST['txtDocumento'],
@@ -23,7 +20,7 @@ if (isset($_POST['btnRegistrar'])) {
         $_POST['txtNombreMascota'],
         $_POST['txtRaza'],
         $_POST['txtGenero'],
-        $fechaRegistro,
+        $_POST['txtFecha'],
         $fechaSalida
     );
 
@@ -119,14 +116,7 @@ if (isset($_POST['btnRegistrar'])) {
                         <input type="text" name="txtFecha" id="" class="form-control" required value="<?php echo $date; ?>" readonly>
                     </div>
                 </div>
-                <div class="form-group" hidden>
-                <?php $fechaSalida = "Ingresado"; ?>
 
-                    <label for="txtFechaSalida" class="control-label col-md-3">Fecha de salida:</label>
-                    <div class="col-md-9">
-                        <input type="text" name="txtFechaSalida" id="" class="form-control" required value="<?php echo $fechaSalida; ?>" readonly>
-                    </div>
-                </div>
 
                 <div class="form-group my-5">
                     <input type="submit" value="Guardar" class="btn btn-primary btn-md" name="btnRegistrar">
